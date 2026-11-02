@@ -1,10 +1,17 @@
 # Shoppe C++20 — Slide thuyết trình OOP
 
-Bộ slide web **Slidev** gồm **47 trang**, tiếng Việt, thiết kế nền sáng với màu cam làm điểm nhấn. Nội dung tập trung vào C++20 và lập trình hướng đối tượng: đóng gói, kế thừa, đa hình, composition, Rule of Five, Strategy, state machine, xử lý API, checkout, transaction, tính giảm giá, kho và thanh toán.
+Bộ slide web **Slidev** gồm **35 trang**, tiếng Việt, thiết kế nền sáng với màu cam làm điểm nhấn. Nội dung ưu tiên các kiến thức đã học trong môn OOP C++: lớp và đối tượng, đóng gói, constructor, nạp chồng toán tử, kế thừa, đa hình, composition, Rule of Five, Strategy và quản lý trạng thái. Phần tiếp theo trình bày thuật toán bằng ví dụ số, mã nguồn và tình huống trong website Shoppe.
 
-Phần API có **4 mô phỏng chuyển động**: lấy danh sách sản phẩm, lấy giỏ hàng, lỗi cập nhật giỏ 409 và báo giá checkout. Mỗi mô phỏng thể hiện đường đi của request, thao tác C++/SQL, response JSON và cập nhật UI. Dùng nút **Chạy / Tạm dừng / ← / → / ↺** để chủ động giải thích từng bước. Các dữ liệu trong mô phỏng là ví dụ, không gửi request thật đến website Shoppe.
+Phần API giữ **một mô phỏng chuyển động** về việc lấy danh sách sản phẩm, minh họa request, thao tác C++/SQL, response JSON và cập nhật UI. Dùng nút **Chạy / Tạm dừng / ← / → / ↺** để chủ động giải thích từng bước. Các dữ liệu trong mô phỏng là ví dụ, không gửi request thật đến website Shoppe.
 
-Các đoạn mã được đọc và đối chiếu với repository [Shoppe-C-](https://github.com/hoquan2007/Shoppe-C-) tại commit `2238d79` (bản được clone vào ngày 01/11/2026). Những đoạn viết lại cho ngắn hơn đều có chú thích **rút gọn** hoặc **minh họa**. Nội dung được lập từ báo cáo `Shoppe_BaoCao_OOP_DaChinhSua.docx` và mã nguồn thực tế. Ảnh giao diện trong `public/` được chụp từ [shoppec.vercel.app](https://shoppec.vercel.app/).
+Các đoạn mã được đọc và đối chiếu với repository [Shoppe-C-](https://github.com/hoquan2007/Shoppe-C-) tại commit `2238d79` (bản được clone vào ngày 01/11/2026). Những đoạn viết lại cho ngắn hơn đều có chú thích **rút gọn** hoặc **minh họa**. Nội dung được sắp xếp lại theo báo cáo `Bao_cao_do_an_OOP_Shoppe_hoan_chinh.docx` và mã nguồn thực tế. Ảnh giao diện trong `public/` được chụp từ [shoppec.vercel.app](https://shoppec.vercel.app/).
+
+## Bố cục mới
+
+- **Slide 1–5:** Bìa, lộ trình, giao diện trang chủ/danh mục và kiến trúc C++.
+- **Slide 6–17:** Bốn đặc trưng OOP, `Money`, constructor, nạp chồng `+`/`*`, `OrderSnapshot`, Rule of Five, phương thức thanh toán, vận chuyển và trạng thái.
+- **Slide 18–32:** Mô phỏng HTTP, code giao tiếp frontend/backend, checkout, thuật toán tách đơn và voucher, tránh tràn số, phí vận chuyển, chống trùng đơn, RAII, khóa tồn kho, Repository và payOS.
+- **Slide 33–35:** Kiểm thử trong mã nguồn, đánh giá đồ án và Q&A.
 
 ## Chạy trực tiếp trên máy
 
@@ -56,4 +63,4 @@ Thông tin tên nhóm, thành viên, giảng viên và lớp chưa có trong fil
 
 ## Phần phân tích thuật toán
 
-Slide 33–41 bổ sung truy vết tách đơn, thứ tự voucher shop/sàn, phân bổ đồng lẻ, tránh tràn số qua 64 bit, mốc phí vận chuyển, xác minh báo giá, request gửi lại, khóa tồn kho và điều kiện biên. Các ví dụ số học là minh họa được đối chiếu logic C++; phần Kiểm thử phân biệt test có trong nguồn với các tình huống phân tích.
+Slide 22–31 đi sâu truy vết tách đơn, thứ tự voucher shop/sàn, phân bổ đồng lẻ, tránh tràn số qua 64 bit, mốc phí vận chuyển, xác minh báo giá, xử lý request lặp, RAII, khóa tồn kho và Repository. Các ví dụ số học là minh họa được đối chiếu logic C++; phần Kiểm thử phân biệt test có trong nguồn với các tình huống phân tích.

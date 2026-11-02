@@ -11,7 +11,7 @@ const missing = [...content.matchAll(/(?:src|href)="(\/[^"\s]+)"/g)]
   .filter((url) => /\.(png|jpg|jpeg|webp|svg)$/i.test(url))
   .filter((url) => !fs.existsSync(path.join(root, 'public', url.slice(1))));
 
-if (count < 25 || fences % 2 || notes < count || missing.length) {
+if (count !== 35 || fences % 2 || notes < count || missing.length) {
   console.error(`Lỗi kiểm tra: ${count} slides, ${fences} dấu code fence, ${notes} speaker notes.`);
   if (missing.length) console.error('Ảnh thiếu:', [...new Set(missing)].join(', '));
   process.exitCode = 1;

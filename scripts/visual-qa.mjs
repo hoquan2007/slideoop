@@ -8,7 +8,7 @@ import { resolve } from 'node:path';
 
 const port = process.env.SLIDE_QA_PORT || '9338';
 const base = process.env.SLIDE_QA_URL || 'http://localhost:47658';
-const count = Number(process.env.SLIDE_QA_COUNT || 47);
+const count = Number(process.env.SLIDE_QA_COUNT || 35);
 const output = resolve('.sources', 'visual-qa');
 mkdirSync(output, { recursive: true });
 
@@ -85,13 +85,14 @@ for (let index = 1; index <= count; index++) {
       .map(x => ({ text: (x.innerText || '').slice(0, 45), height: x.clientHeight, scrollHeight: x.scrollHeight, width: x.clientWidth, scrollWidth: x.scrollWidth }));
     return { title: slide.querySelector('h1')?.innerText || 'COVER', scale: +cssScale.toFixed(2), bounds: [sr.x, sr.y, sr.width, sr.height].map(Math.round), outside, badImage, clipped, textLength: (slide.innerText || '').length };
   })()`);
+  if (metrics?.problem) throw new Error(`Slide ${index}: ${metrics.problem} (${metrics.url})`);
   const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
   writeFileSync(resolve(output, `slide-${String(index).padStart(2, '0')}.png`), Buffer.from(shot.data, 'base64'));
   reports.push({ slide: index, ...metrics });
   process.stdout.write(`${index}/${count} ${metrics.title?.replace(/\n/g, ' ').slice(0, 52)} | outside ${metrics.outside?.length || 0}, clipped ${metrics.clipped?.length || 0}\n`);
 }
 
-await send('Page.navigate', { url: `${base}/20` });
+await send('Page.navigate', { url: `${base}/18` });
 await sleep(1250);
 const apiBefore = await evaluate(`(() => ({count:document.querySelector('.api-demo__count')?.innerText, button:document.querySelector('.api-demo__primary')?.innerText}))()`);
 await evaluate(`document.querySelector('.api-demo__controls button[aria-label="Tiến một bước"]')?.click()`);
@@ -101,10 +102,7 @@ const apiReplay = await evaluate(`(() => ({count:document.querySelector('.api-de
 
 const interactive = [];
 for (const [index, endpoint, status, failed] of [
-  [20, '/api/cart', '200 OK', false],
-  [21, '/api/products?page=1', '200 OK', false],
-  [23, '/api/cart', '409 CONFLICT', true],
-  [24, '/api/checkout/quote', '200 OK', false],
+  [18, '/api/products?page=1', '200 OK', false],
 ]) {
   await send('Page.navigate', { url: `${base}/${index}` });
   let ready = false;
@@ -132,7 +130,7 @@ for (const [index, endpoint, status, failed] of [
   interactive.push({ slide: index, passed, ...state });
 }
 
-await send('Page.navigate', { url: `${base}/22` });
+await send('Page.navigate', { url: `${base}/19` });
 for (let retry = 0; retry < 30; retry++) {
   await sleep(100);
   if (await evaluate('Boolean(document.querySelector(".fetch-pipeline"))')) break;
@@ -147,11 +145,11 @@ for (let step = 0; step < 4; step++) {
 }
 const revealPassed = beforeClicks === 4 && clickCounts.join(',') === '3,2,1,0';
 
-const summary = { generatedAt: new Date().toISOString(), url: base, count, problems: reports.filter(x => x.problem || x.outside?.length || x.clipped?.length || x.badImage?.length), errors, apiControls: { before: apiBefore, next: apiNext, replay: apiReplay }, interactive, reveal: { slide: 22, beforeClicks, clickCounts, passed: revealPassed }, reports };
+const summary = { generatedAt: new Date().toISOString(), url: base, count, problems: reports.filter(x => x.problem || x.outside?.length || x.clipped?.length || x.badImage?.length), errors, apiControls: { before: apiBefore, next: apiNext, replay: apiReplay }, interactive, reveal: { slide: 19, beforeClicks, clickCounts, passed: revealPassed }, reports };
 writeFileSync(resolve(output, 'report.json'), JSON.stringify(summary, null, 2));
 console.log(`QA: ${summary.problems.length} slides flagged, ${errors.length} console issues.`);
 console.log('API buttons:', JSON.stringify(summary.apiControls));
 console.log('API scenarios:', interactive.map(item => `${item.slide}: ${item.passed ? 'PASS' : 'FAIL'}`).join(', '));
-console.log('Slide 22 reveal:', JSON.stringify(summary.reveal));
+console.log('Slide 19 reveal:', JSON.stringify(summary.reveal));
 if (summary.problems.length || summary.errors.length || interactive.some(item => !item.passed) || !revealPassed) process.exitCode = 1;
 ws.close();
