@@ -110,7 +110,7 @@ html { font-family: 'Be Vietnam Pro', 'Inter', 'Segoe UI', sans-serif; }
 .cart-card p { font-size: 16px; }
 .problem-flow .arr { color: var(--orange); font-size: 36px; font-weight: 800; }
 .showcase { margin-top: 17px; }
-.two-parts { display: grid; grid-template-columns: 1.65fr 1fr; gap: 26px; align-items: stretch; height: 495px; }
+.two-parts { display: grid; grid-template-columns: 1.65fr 1fr; gap: 26px; align-items: stretch; min-height: 465px; }
 .screenshot-frame { border: 1px solid #e9e4de; background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
 .screenshot-frame img { display: block; width: 100%; height: calc(100% - 34px); object-fit: cover; object-position: left top; }
 .catalog-shot img { object-position: left top; }
@@ -160,9 +160,16 @@ html { font-family: 'Be Vietnam Pro', 'Inter', 'Segoe UI', sans-serif; }
 .code-layout { display: grid; grid-template-columns: 1.17fr 1fr; gap: 24px; align-items: start; margin-top: 30px; }
 .slidev-layout .code-layout pre.slidev-code, .slidev-layout .code-layout pre { font-size: 16px !important; padding: 20px 16px !important; }
 .code-layout > div:first-child { min-width: 0; }
-.explain-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 26px 27px; min-height: 340px; box-shadow: var(--shadow); }
-.explain-card h3 { font-size: 23px; margin-bottom: 18px; }
-.explain-card p { font-size: 16px; margin-bottom: 15px; }
+.explain-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 21px 23px; min-height: 340px; box-shadow: var(--shadow); }
+.explain-card .pill { margin-bottom: 13px; }
+.explain-card h3 { font-size: 22px; line-height: 1.28; margin-bottom: 14px; }
+.explain-card p { font-size: 15px; line-height: 1.48; margin-bottom: 10px; }
+.explain-card p.explain-tech { font-size: 14px; margin: 8px 0 0; }
+.explain-card .example-box { padding: 11px 15px; margin-top: 13px; font-size: 14px; line-height: 1.55; }
+.explain-card .example-box strong { font-size: 17px; }
+.explain-card .payment-mini { padding: 9px 13px; margin-bottom: 8px; line-height: 1.4; }
+.explain-card .payment-mini b { font-size: 14px; }
+.example-box .danger { color: #cc4934; }
 .example-box { background: #f0f6f4; border-radius: 10px; padding: 13px 17px; color: #326b5d; font-size: 15px; margin-top: 21px; line-height: 1.7; }
 .example-box span, .example-box strong { display: block; }
 .example-box strong { font-size: 19px; color: #18795b; }

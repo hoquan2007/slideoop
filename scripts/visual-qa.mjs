@@ -83,7 +83,15 @@ for (let index = 1; index <= count; index++) {
     const badImage = [...slide.querySelectorAll('img')].filter(x => !x.complete || x.naturalWidth === 0).map(x => x.getAttribute('src'));
     const clipped = [...slide.querySelectorAll('.api-demo__inspect pre,.fetch-code pre,.slidev-code')].filter(x => x.scrollHeight > x.clientHeight + 4 || x.scrollWidth > x.clientWidth + 4)
       .map(x => ({ text: (x.innerText || '').slice(0, 45), height: x.clientHeight, scrollHeight: x.scrollHeight, width: x.clientWidth, scrollWidth: x.scrollWidth }));
-    return { title: slide.querySelector('h1')?.innerText || 'COVER', scale: +cssScale.toFixed(2), bounds: [sr.x, sr.y, sr.width, sr.height].map(Math.round), outside, badImage, clipped, studyButton: Boolean(slide.querySelector('.study-trigger')), textLength: (slide.innerText || '').length };
+    const sidePanels = [...slide.querySelectorAll('.explain-card,.side-notes')].map(card => ({
+      characters: (card.innerText || '').trim().length,
+      bottom: Math.round(card.getBoundingClientRect().bottom),
+      overflow: card.scrollHeight > card.clientHeight + 4,
+    }));
+    const source = slide.querySelector('.source-line');
+    const sourceOverlap = Boolean(source && [...slide.querySelectorAll('.side-notes,.screenshot-frame')]
+      .some(card => card.getBoundingClientRect().bottom > source.getBoundingClientRect().top - 4));
+    return { title: slide.querySelector('h1')?.innerText || 'COVER', scale: +cssScale.toFixed(2), bounds: [sr.x, sr.y, sr.width, sr.height].map(Math.round), outside, badImage, clipped, sidePanels, sourceOverlap, obsoleteButton: Boolean(slide.querySelector('.study-trigger')), textLength: (slide.innerText || '').length };
   })()`);
   if (metrics?.problem) throw new Error(`Slide ${index}: ${metrics.problem} (${metrics.url})`);
   const shot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
@@ -145,31 +153,12 @@ for (let step = 0; step < 4; step++) {
 }
 const revealPassed = beforeClicks === 4 && clickCounts.join(',') === '3,2,1,0';
 
-await send('Page.navigate', { url: `${base}/24` });
-for (let retry = 0; retry < 60; retry++) {
-  await sleep(100);
-  if (await evaluate(`Boolean(${activeLayout}?.querySelector('.study-trigger'))`)) break;
-}
-await evaluate(`${activeLayout}?.querySelector('.study-trigger')?.click()`);
-await sleep(250);
-const modalOpen = await evaluate(`(() => {
-  const dialog = document.querySelector('.study-dialog');
-  return { visible: Boolean(dialog), title: dialog?.querySelector('h2')?.textContent?.trim(), steps: dialog?.querySelectorAll('.study-dialog__steps li')?.length, hasExample: Boolean(dialog?.querySelector('.study-dialog__example')?.textContent?.includes('33.333')), source: dialog?.querySelector('.study-dialog__source')?.textContent };
-})()`);
-const modalShot = await send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
-writeFileSync(resolve(output, 'study-dialog-24.png'), Buffer.from(modalShot.data, 'base64'));
-await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
-await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
-await sleep(120);
-const modalClosed = await evaluate(`!document.querySelector('.study-dialog') && location.pathname === '/24'`);
-const modalPassed = modalOpen.visible && modalOpen.steps === 4 && modalOpen.hasExample && modalClosed;
-
-const summary = { generatedAt: new Date().toISOString(), url: base, count, problems: reports.filter(x => x.problem || x.outside?.length || x.clipped?.length || x.badImage?.length || !x.studyButton), errors, apiControls: { before: apiBefore, next: apiNext, replay: apiReplay }, interactive, reveal: { slide: 19, beforeClicks, clickCounts, passed: revealPassed }, explanations: { slide: 24, open: modalOpen, closed: modalClosed, passed: modalPassed }, reports };
+const summary = { generatedAt: new Date().toISOString(), url: base, count, problems: reports.filter(x => x.problem || x.outside?.length || x.clipped?.length || x.badImage?.length || x.obsoleteButton || x.sourceOverlap || x.sidePanels.some(panel => panel.characters < 225 || panel.overflow || panel.bottom > x.bounds[1] + x.bounds[3] - 20)), errors, apiControls: { before: apiBefore, next: apiNext, replay: apiReplay }, interactive, reveal: { slide: 19, beforeClicks, clickCounts, passed: revealPassed }, reports };
 writeFileSync(resolve(output, 'report.json'), JSON.stringify(summary, null, 2));
 console.log(`QA: ${summary.problems.length} slides flagged, ${errors.length} console issues.`);
 console.log('API buttons:', JSON.stringify(summary.apiControls));
 console.log('API scenarios:', interactive.map(item => `${item.slide}: ${item.passed ? 'PASS' : 'FAIL'}`).join(', '));
 console.log('Slide 19 reveal:', JSON.stringify(summary.reveal));
-console.log('Detailed explanation:', JSON.stringify(summary.explanations));
-if (summary.problems.length || summary.errors.length || interactive.some(item => !item.passed) || !revealPassed || !modalPassed) process.exitCode = 1;
+console.log('Right-side explanation panels:', reports.reduce((total, item) => total + item.sidePanels.length, 0));
+if (summary.problems.length || summary.errors.length || interactive.some(item => !item.passed) || !revealPassed) process.exitCode = 1;
 ws.close();

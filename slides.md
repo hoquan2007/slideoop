@@ -28,8 +28,6 @@ drawings:
   </div>
 </div>
 
-<DeepExplain :slide="1" />
-
 <!--
 SLIDE 01 — Từ cửa hàng online đến bài toán OOP
 Đối chiếu báo cáo Word: Tóm tắt báo cáo; Chương 1
@@ -64,8 +62,6 @@ layout: default
   <div class="route-card"><div class="route-no">04</div><h3>Kiểm thử & hỏi đáp</h3><p>Ví dụ test C++, kết quả đồ án, giới hạn và phần trao đổi.</p><span>SLIDE 33–35</span></div>
 </div>
 
-<DeepExplain :slide="2" />
-
 <!--
 SLIDE 02 — Đọc bài theo hành trình một đơn hàng
 Đối chiếu báo cáo Word: Chương 1, 2, 3, 4, 5
@@ -94,11 +90,9 @@ layout: default
 # Demo trang chủ: người mua thao tác gì?
 <div class="showcase two-parts">
   <div class="screenshot-frame"><div class="browser-top"><i></i><i></i><i></i><span>shoppec.vercel.app</span></div><img src="/shoppe-home.png" alt="Trang chủ Shoppe" /></div>
-  <div class="side-notes"><div class="feature-tag">Trang chủ · Dữ liệu từ API</div><h3>Giao diện là điểm bắt đầu</h3><p>Khách có thể tìm kiếm, khám phá sản phẩm, chuyển sang tài khoản hoặc giỏ hàng.</p><div class="soft-line"></div><p><b>Điểm chính:</b> giao diện JavaScript gửi yêu cầu; backend C++ trả dữ liệu và kiểm tra nghiệp vụ.</p><div class="mini-code">GET /api/home</div></div>
+  <div class="side-notes"><div class="feature-tag">Trang chủ · Dữ liệu từ API</div><h3>Trang chủ giúp khách làm gì?</h3><p><b>Chức năng:</b> giới thiệu sản phẩm và dẫn khách tới tìm kiếm, chi tiết món hàng, tài khoản hoặc giỏ hàng.</p><p><b>Lợi ích:</b> khách nhìn thấy hàng hóa ngay khi mở web; giá và thông tin được lấy từ máy chủ để các màn hình dùng chung dữ liệu.</p><p><b>Ví dụ:</b> khách thấy một chiếc áo, bấm xem chi tiết rồi thêm vào giỏ. Backend C++ cung cấp dữ liệu và xử lý các quy tắc mua hàng.</p><div class="mini-code">GET /api/home · Lấy dữ liệu trang chủ</div></div>
 </div>
 <div class="source-line">Ảnh chụp từ website Shoppe đang triển khai · 01/11/2026</div>
-
-<DeepExplain :slide="3" />
 
 <!--
 SLIDE 03 — Trang chủ là nơi khách ra yêu cầu
@@ -128,11 +122,9 @@ layout: default
 # Demo danh mục: tìm kiếm và phân trang
 <div class="showcase two-parts">
   <div class="screenshot-frame catalog-shot"><div class="browser-top"><i></i><i></i><i></i><span>shoppec.vercel.app/search</span></div><img src="/shoppe-catalog.png" alt="Danh mục Shoppe" /></div>
-  <div class="side-notes"><div class="feature-tag">Tìm kiếm · Phân trang · Lọc</div><h3>Nhẹ phía trình duyệt</h3><p>Website hiển thị <b>12 sản phẩm mỗi trang</b>. Từ khóa, danh mục, khoảng giá và thứ tự sắp xếp được gửi tới backend.</p><div class="mini-code">GET /api/products?page=1&amp;sort=new</div><p class="caption">Hệ thống có dữ liệu mẫu; kết quả và tồn kho được đọc từ cơ sở dữ liệu.</p></div>
+  <div class="side-notes"><div class="feature-tag">Tìm kiếm · Phân trang · Lọc</div><h3>Tìm đúng món, tải vừa đủ</h3><p><b>Chức năng:</b> tìm theo tên, lọc danh mục hoặc giá, sắp xếp và chia kết quả thành <b>12 sản phẩm mỗi trang</b>.</p><p><b>Lợi ích:</b> khách không phải xem cả kho hàng cùng lúc; danh sách gọn, dễ so sánh và hạn chế tải dữ liệu thừa.</p><p><b>Ví dụ:</b> tìm “tai nghe”, chọn mức giá phù hợp rồi chuyển trang 2 để xem tiếp. Backend tra dữ liệu, giao diện hiển thị kết quả.</p><div class="mini-code">GET /api/products?page=1&amp;sort=new</div></div>
 </div>
 <div class="source-line">Ảnh chụp danh mục thật · minh họa dữ liệu sản phẩm trên giao diện</div>
-
-<DeepExplain :slide="4" />
 
 <!--
 SLIDE 04 — Phân trang giống chia hàng thành từng kệ
@@ -169,8 +161,6 @@ layout: default
 </div>
 <div class="arch-bottom"><span>payOS</span><span>Supabase Storage</span><span>Resend</span><span>Google Login</span><p>Dịch vụ tích hợp ngoài khi có cấu hình</p></div>
 
-<DeepExplain :slide="5" />
-
 <!--
 SLIDE 05 — Ba bộ phận cùng hoàn thành một đơn hàng
 Đối chiếu báo cáo Word: Mục 2.2; 3.1.2; 3.4
@@ -203,8 +193,6 @@ layout: default
   <div class="oop-card"><span>03</span><h3>Kế thừa</h3><p><b>CodPayment</b> và <b>OnlinePayment</b> cài đặt giao diện thanh toán chung.</p><code>: public IPaymentMethod</code></div>
   <div class="oop-card"><span>04</span><h3>Đa hình</h3><p>Cùng một con trỏ cơ sở, chương trình gọi đúng phương thức của từng kiểu.</p><code>payment-&gt;requiresGateway()</code></div>
 </div>
-
-<DeepExplain :slide="6" />
 
 <!--
 SLIDE 06 — Bốn đặc trưng OOP như một bộ quy tắc chung
@@ -249,10 +237,8 @@ public:
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Class tạo quy tắc, object lưu tiền cụ thể</h3><p><b>value_</b> nằm ở <code>private</code>, bên ngoài chỉ được đọc qua <code>value()</code>.</p><p>Phép cộng và phép nhân được gom vào chính lớp, giúp dùng chung quy tắc ở mọi nơi.</p><div class="example-box"><code>Money giaAo(90000);</code><br><small>giaAo là đối tượng của lớp Money</small><strong>Giá áo: 90.000đ</strong></div></div>
+<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Vì sao Shoppe cần lớp Money?</h3><p><b>Chức năng:</b> đại diện cho một số tiền và cung cấp cách cộng, nhân giá tiền thống nhất trong toàn bộ hệ thống.</p><p><b>Lợi ích:</b> các chức năng giỏ hàng, đơn hàng và vận chuyển đều dùng chung quy tắc; hạn chế việc mỗi nơi tự tính tiền theo một cách.</p><p><b>Trong C++:</b> <code>private</code> giữ giá trị bên trong; các hàm của lớp đảm nhiệm thao tác với tiền.</p><div class="example-box"><span>Áo 90.000đ × 2 chiếc</span><strong>Tiền hàng: 180.000đ</strong></div></div>
 </div>
-
-<DeepExplain :slide="7" />
 
 <!--
 SLIDE 07 — Class là bản thiết kế; object là số tiền thật
@@ -299,10 +285,8 @@ Money Money::operator*(std::int64_t q) const {
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.cpp · mã nguồn thật</span><h3>Hai tầng bảo vệ</h3><p><b>① Constructor:</b> không cho giá trị âm hoặc quá 1.000 tỷ.</p><p><b>② Toán tử *:</b> kiểm tra phép nhân trước khi thực hiện để tránh vượt giới hạn.</p><div class="example-box"><span>Money(1.000.000) × 2</span><strong>2.000.000 ✓</strong><span>Money(1.000 tỷ) × 2</span><strong class="danger">Báo lỗi 422</strong></div></div>
+<div class="explain-card"><span class="pill">domain.cpp · mã nguồn thật</span><h3>Giữ giá và tổng tiền hợp lệ</h3><p><b>Constructor làm gì?</b> Kiểm tra ngay khi tạo số tiền: giá âm hoặc vượt 1.000 tỷ sẽ bị từ chối.</p><p><b>Toán tử nhân làm gì?</b> Tính <b>đơn giá × số lượng</b>, đồng thời kiểm tra tổng trước khi nhân để tránh số tiền vượt giới hạn.</p><p><b>Hiệu quả:</b> không cho giá bất thường đi vào giỏ hàng, giảm nguy cơ sai tổng tiền khi khách đặt nhiều sản phẩm.</p><div class="example-box"><span>1.000.000đ × 2 → <b>2.000.000đ ✓</b></span><span>1.000 tỷ × 2 → <b class="danger">Từ chối · lỗi 422</b></span></div></div>
 </div>
-
-<DeepExplain :slide="8" />
 
 <!--
 SLIDE 08 — Constructor như nhân viên kiểm hàng ở cửa vào
@@ -349,10 +333,8 @@ Money tong = giaSach + giaBut;
 ```
 
 </div>
-<div class="explain-card"><span class="pill">CHƯƠNG NẠP CHỒNG TOÁN TỬ</span><h3>Ba bước khi chạy</h3><p><b>①</b> Toán tử <code>+</code> gọi <code>operator+</code> của <code>giaSach</code>.</p><p><b>②</b> Lấy <code>value_</code> từ hai đối tượng để cộng.</p><p><b>③</b> Tạo một <code>Money</code> mới; constructor kiểm tra giới hạn số tiền.</p><div class="example-box"><span>55.000đ + 15.000đ</span><strong>= 70.000đ</strong></div></div>
+<div class="explain-card"><span class="pill">domain.cpp · toán tử +</span><h3>Cộng nhiều món hàng dễ dàng</h3><p><b>Chức năng:</b> cộng hai số tiền như cộng các số thông thường, ví dụ giá sách và giá bút trong cùng một giỏ.</p><p><b>Lợi ích:</b> mã tính tổng đơn ngắn, dễ đọc; kết quả vẫn thuộc lớp Money nên tiếp tục được kiểm tra theo quy tắc chung.</p><p><b>Trong C++:</b> dấu <code>+</code> gọi hàm <code>operator+</code> để tạo một đối tượng Money chứa tổng.</p><div class="example-box"><span>Sách 55.000đ + bút 15.000đ</span><strong>Thành tiền: 70.000đ</strong></div></div>
 </div>
-
-<DeepExplain :slide="9" />
 
 <!--
 SLIDE 09 — Toán tử + cũng là một hàm được đặt tên
@@ -399,10 +381,8 @@ public:
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Quan hệ “có chứa”</h3><p>Một <b>OrderSnapshot</b> giữ nhiều <b>Line</b>; mỗi Line chứa số lượng và một đối tượng <b>Money</b>.</p><p><code>unique_ptr</code> thể hiện quyền sở hữu vùng nhớ do snapshot quản lý.</p><div class="example-box"><span>2 sản phẩm × 12.345 đồng</span><strong>24.690 đồng</strong></div></div>
+<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Chốt danh sách món trong đơn</h3><p><b>Chức năng:</b> <code>OrderSnapshot</code> tập hợp các dòng hàng; mỗi dòng nhớ sản phẩm, số lượng và đơn giá để tính tổng.</p><p><b>Lợi ích:</b> các thông tin cần cho đơn được gom vào một nơi, giúp kiểm tra tổng tiền và xử lý từng đơn con khi giỏ có nhiều shop.</p><p><b>Trong C++:</b> một snapshot <b>chứa</b> nhiều Line; <code>unique_ptr</code> quản lý vùng nhớ của danh sách.</p><div class="example-box"><span>2 sản phẩm, đơn giá 12.345đ</span><strong>Tiền hàng: 24.690đ</strong></div></div>
 </div>
-
-<DeepExplain :slide="10" />
 
 <!--
 SLIDE 10 — OrderSnapshot giống một tờ hóa đơn có nhiều dòng
@@ -447,11 +427,9 @@ OrderSnapshot &OrderSnapshot::operator=(
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.cpp · trích đoạn</span><h3>Deep copy & move</h3><p><b>Copy:</b> tạo một vector mới, dữ liệu của hai snapshot độc lập.</p><p><b>Move:</b> chuyển quyền sở hữu tài nguyên, không cần sao chép cả danh sách.</p><div class="example-box">Bản gốc A → copy B<br><b>Sửa B không làm đổi A</b></div></div>
+<div class="explain-card"><span class="pill">domain.cpp · trích đoạn</span><h3>Sao chép đơn mà không lẫn dữ liệu</h3><p><b>Copy để làm gì?</b> Tạo bản sao độc lập của danh sách hàng; thay đổi bản sao không vô tình sửa bản gốc.</p><p><b>Move để làm gì?</b> Chuyển danh sách sang nơi sử dụng mới mà không phải sao chép lại toàn bộ, giúp giảm thao tác bộ nhớ.</p><p><b>Trong C++:</b> lớp tự quy định cách sao chép và chuyển quyền sở hữu tài nguyên.</p><div class="example-box"><span>Chụp giỏ A thành bản B để thử tính tiền</span><strong>Sửa B, giỏ A vẫn giữ nguyên</strong></div></div>
 </div>
 <div class="slide-footnote">Bộ năm hàm trong mã gốc: destructor, copy constructor, copy assignment, move constructor, move assignment.</div>
-
-<DeepExplain :slide="11" />
 
 <!--
 SLIDE 11 — Copy và move giống sao hồ sơ và bàn giao hồ sơ
@@ -500,10 +478,8 @@ public:
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.h · trích đoạn</span><h3>Cùng tên hàm, khác kết quả</h3><div class="payment-mini"><b>COD</b><span>unpaid</span><span>Không gọi cổng thanh toán</span></div><div class="payment-mini online"><b>payOS</b><span>pending</span><span>Cần gọi cổng thanh toán</span></div><p>Ứng dụng chọn đối tượng, sau đó gọi qua <code>IPaymentMethod</code>.</p></div>
+<div class="explain-card"><span class="pill">domain.h · trích đoạn</span><h3>Một cách gọi, hai cách thanh toán</h3><p><b>Chức năng:</b> quy định cách mỗi phương thức báo trạng thái ban đầu và có cần cổng thanh toán trực tuyến hay không.</p><p><b>Lợi ích:</b> checkout dùng cùng một giao diện, dù khách chọn trả lúc nhận hàng hay thanh toán online.</p><div class="payment-mini"><b>COD · trả khi nhận</b><span>Trạng thái <b>unpaid</b> · Không mở cổng thanh toán</span></div><div class="payment-mini online"><b>payOS · trả trực tuyến</b><span>Trạng thái <b>pending</b> · Cần cổng thanh toán</span></div><p class="explain-tech"><b>Trong C++:</b> các lớp cài đặt chung <code>IPaymentMethod</code>.</p></div>
 </div>
-
-<DeepExplain :slide="12" />
 
 <!--
 SLIDE 12 — Một hợp đồng thanh toán, hai hình thức khác nhau
@@ -547,10 +523,8 @@ if (payment->requiresGateway() && !gatewayReady())
 ```
 
 </div>
-<div class="explain-card"><span class="pill">application.cpp · trích đoạn</span><h3>Ý nghĩa OOP</h3><p>Biến <code>payment</code> chỉ biết đến <b>giao diện chung</b>.</p><p>Khi người mua chọn COD, đối tượng báo không cần gateway. Với payOS, ứng dụng kiểm tra gateway đã cấu hình hay chưa.</p><div class="takeaway compact">Có thể bổ sung phương thức mới bằng cách tạo một lớp cài đặt giao diện.</div></div>
+<div class="explain-card"><span class="pill">application.cpp · trích đoạn</span><h3>Chọn đúng luồng theo cách trả tiền</h3><p><b>Chức năng:</b> khi khách chọn COD hoặc payOS, checkout tạo phương thức phù hợp rồi hỏi có cần cổng thanh toán hay không.</p><p><b>Lợi ích:</b> COD đi tiếp mà không cần kết nối payOS; với thanh toán online, hệ thống kiểm tra cấu hình trước để tránh nhận đơn ở một luồng chưa sẵn sàng.</p><p><b>Trong C++:</b> biến <code>payment</code> gọi cùng một hàm qua giao diện chung; mỗi lớp tự trả lời theo cách của mình.</p><div class="example-box"><span>Chọn payOS nhưng chưa cấu hình cổng</span><strong class="danger">Thông báo chưa thể thanh toán</strong></div></div>
 </div>
-
-<DeepExplain :slide="13" />
 
 <!--
 SLIDE 13 — Đa hình chọn đúng cách làm khi khách bấm thanh toán
@@ -598,10 +572,8 @@ public:
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Mẫu thiết kế Strategy</h3><p><b>Interface</b> quy định cách tính phí; lớp <b>RegionalShipping</b> triển khai theo vùng và khối lượng.</p><p>Ứng dụng gọi <code>shipping.calculate(...)</code> trong quá trình tính đơn.</p><div class="takeaway compact">Muốn đổi cách tính phí: thêm chiến lược mới, giảm tác động đến luồng checkout.</div></div>
+<div class="explain-card"><span class="pill">domain.h · rút gọn</span><h3>Đổi quy tắc phí giao linh hoạt</h3><p><b>Chức năng:</b> tính phí giao dựa vào nơi nhận hàng và khối lượng. Checkout chỉ cần yêu cầu “tính phí” từ quy tắc đang sử dụng.</p><p><b>Lợi ích:</b> nếu sau này đổi biểu phí hoặc thêm cách tính khác, có thể thay lớp tính phí mà ít phải sửa phần đặt hàng.</p><p><b>Trong C++:</b> <code>IShippingFeePolicy</code> quy định hàm chung; <code>RegionalShipping</code> thực hiện phép tính theo vùng.</p><div class="example-box"><span>Đơn 1.501g giao khác vùng</span><strong>Phí minh họa: 45.000đ</strong></div></div>
 </div>
-
-<DeepExplain :slide="14" />
 
 <!--
 SLIDE 14 — Chính sách giao hàng giống bảng quy định của hãng vận chuyển
@@ -639,8 +611,6 @@ return Money((same ? local_ : remote_)
     + std::max(0, (w - 1000 + 499) / 500) * step_);
 ```
 
-<DeepExplain :slide="15" />
-
 <!--
 SLIDE 15 — Phí giao: tính tiền nền rồi cộng từng nấc 500g
 Đối chiếu báo cáo Word: Mục 3.2.5; 3.3.1
@@ -670,8 +640,6 @@ layout: default
 <div class="state-steps"><div><span>01</span><b>new</b><small>Mới tạo</small></div><div class="state-arrow">→</div><div><span>02</span><b>confirmed</b><small>Đã xác nhận</small></div><div class="state-arrow">→</div><div><span>03</span><b>preparing</b><small>Chuẩn bị hàng</small></div><div class="state-arrow">→</div><div><span>04</span><b>shipping</b><small>Vận chuyển</small></div><div class="state-arrow">→</div><div><span>05</span><b>delivered</b><small>Đã giao</small></div><div class="state-arrow">→</div><div><span>06</span><b>completed</b><small>Hoàn tất</small></div></div>
 <div class="state-support"><div class="state-good"><b>Hợp lệ ✓</b><p>new → confirmed</p></div><div class="state-bad"><b>Không hợp lệ ✕</b><p>new → delivered</p></div><div class="state-extra"><b>Nhánh đặc biệt</b><p>cancelled · delivery_failed<br>Có điều kiện cho phép riêng</p></div></div>
 <div class="takeaway">Quy tắc chuyển trạng thái nằm trong <code>IOrderState / orderState()</code>, giúp chặn việc bỏ qua bước nghiệp vụ.</div>
-
-<DeepExplain :slide="16" />
 
 <!--
 SLIDE 16 — Đơn hàng phải đi đúng các bước như theo dõi bưu kiện
@@ -712,10 +680,8 @@ void requireTransition(const std::string &from,
 ```
 
 </div>
-<div class="explain-card"><span class="pill">domain.cpp · mã nguồn thật</span><h3>Chương trình làm gì?</h3><p>① Tạo đối tượng trạng thái hiện tại.</p><p>② Gọi <code>allows(to)</code> kiểm tra chuyển tiếp.</p><p>③ Sai quy tắc → trả lỗi nghiệp vụ <b>HTTP 409</b>.</p><div class="example-box"><span>requireTransition("new", "delivered")</span><strong class="danger">Bị từ chối</strong></div></div>
+<div class="explain-card"><span class="pill">domain.cpp · mã nguồn thật</span><h3>Không cho đơn “nhảy cóc”</h3><p><b>Chức năng:</b> kiểm tra đơn có được chuyển từ trạng thái hiện tại sang trạng thái tiếp theo hay không.</p><p><b>Lợi ích:</b> ngăn đơn vừa tạo bị đánh dấu đã giao khi chưa xác nhận, chuẩn bị hoặc vận chuyển; lịch sử đơn đáng tin cậy hơn.</p><p><b>Trong C++:</b> <code>allows(to)</code> hỏi quy tắc trạng thái; nếu sai, hàm trả lỗi nghiệp vụ <b>409</b>.</p><div class="example-box"><span><b>new → confirmed:</b> Hợp lệ ✓</span><span><b>new → delivered:</b> <b class="danger">Bị từ chối</b></span></div></div>
 </div>
-
-<DeepExplain :slide="17" />
 
 <!--
 SLIDE 17 — Code kiểm tra trạng thái như người gác cổng
@@ -745,8 +711,6 @@ layout: default
 # Demo động: JavaScript gọi API C++ như thế nào?
 
 <ApiFlowDemo scenario="products" />
-
-<DeepExplain :slide="18" />
 
 <!--
 SLIDE 18 — API là cách trình duyệt đặt câu hỏi cho C++
@@ -803,8 +767,6 @@ if (path == "/api/products" && method == "GET") {
 <div class="fetch-pipeline"><div v-click><span>01</span><b>fetch()</b><small>Gửi GET</small></div><i>→</i><div v-click><span>02</span><b>Backend</b><small>Truy vấn DB</small></div><i>→</i><div v-click><span>03</span><b>response.json()</b><small>Đọc dữ liệu</small></div><i>→</i><div v-click><span>04</span><b>renderProducts()</b><small>Hiển thị UI</small></div></div>
 <div class="takeaway compact">Bấm <b>Space / →</b> để hiện lần lượt 4 bước. Mã ví dụ đã rút gọn; <code>api.js</code> thực tế còn có CSRF, cache và timeout.</div>
 
-<DeepExplain :slide="19" />
-
 <!--
 SLIDE 19 — fetch, JSON và render: ba bước của một lần tải dữ liệu
 Đối chiếu báo cáo Word: Mục 3.4.1–3.4.2
@@ -833,8 +795,6 @@ layout: default
 # Checkout: xem báo giá trước khi lưu đơn
 <div class="checkout-stages"><div class="checkout-stage"><span>01</span><h3>Khách gửi giỏ và địa chỉ</h3><p>Chọn số lượng, phương thức thanh toán, voucher</p></div><div class="checkout-stage accent"><span>02</span><h3>POST /checkout/quote</h3><p>Đọc giá và kho từ DB → tính tổng và tạo báo giá có chữ ký</p></div><div class="checkout-stage"><span>03</span><h3>Khách xác nhận</h3><p>Hiển thị tổng tiền, phương thức, phí giao</p></div><div class="checkout-stage dark"><span>04</span><h3>POST /checkout</h3><p>Kiểm tra lại → lưu đơn, giữ kho trong transaction</p></div></div>
 <div class="takeaway"><b>Hai bước</b> giúp người mua nhìn thấy tổng tiền trước khi đặt và giúp backend kiểm tra dữ liệu lần cuối.</div>
-
-<DeepExplain :slide="20" />
 
 <!--
 SLIDE 20 — Báo giá giống xem hóa đơn trước khi trả tiền
@@ -876,8 +836,6 @@ for (auto &[shopId, items] : grouped) {
 </div>
 <p class="caption">Mã rút gọn từ luồng checkout: nhóm sản phẩm theo <code>shopId</code>, tạo snapshot, tính tổng và phí từng shop.</p>
 
-<DeepExplain :slide="21" />
-
 <!--
 SLIDE 21 — Một giỏ hàng có thể phải tách thành nhiều đơn
 Đối chiếu báo cáo Word: Mục 3.3.3; 3.4.5
@@ -909,8 +867,6 @@ layout: default
 <div class="algo-columns"><div><h3>Kiểm tra trước khi đưa vào nhóm</h3><p>Bỏ qua dòng chưa chọn. Chặn sản phẩm ngừng bán, shop chưa được duyệt, số lượng ngoài 1–99 hoặc không đủ kho.</p></div><div><h3>Chỉ duyệt giỏ một lần</h3><p><code>std::map</code> tra nhóm theo shop: O(n log s), với n dòng và s shop; bộ nhớ chứa các dòng được chọn là O(n).</p></div></div>
 <div class="takeaway">Nhóm A: <b>250.000đ</b> · Nhóm B: <b>300.000đ</b>. Sau đó mỗi nhóm tạo <code>OrderSnapshot</code> để tính tiền hàng.</div>
 
-<DeepExplain :slide="22" />
-
 <!--
 SLIDE 22 — Nhóm theo shop_id giống xếp hóa đơn vào ngăn riêng
 Đối chiếu báo cáo Word: Mục 3.3.3
@@ -940,8 +896,6 @@ layout: default
 <p class="lead">Ví dụ tiếp nối: phí giao A là 20.000đ, B là 35.000đ; voucher sàn giảm 53.000đ.</p>
 <table class="algo-table"><thead><tr><th>Bước tính</th><th>Shop A</th><th>Shop B</th><th>Tổng</th></tr></thead><tbody><tr><td>1 · Tiền hàng</td><td>250.000</td><td>300.000</td><td>550.000</td></tr><tr><td>2 · Trừ voucher shop</td><td>−20.000</td><td>0</td><td>−20.000</td></tr><tr><td>3 · Cơ sở chia voucher sàn</td><td>230.000</td><td>300.000</td><td>530.000</td></tr><tr><td>4 · Phần voucher sàn được chia</td><td>−23.000</td><td>−30.000</td><td>−53.000</td></tr><tr><td>5 · Cộng phí giao</td><td>+20.000</td><td>+35.000</td><td>+55.000</td></tr><tr class="algo-total"><td>Khách thanh toán</td><td>227.000đ</td><td>305.000đ</td><td>532.000đ</td></tr></tbody></table>
 <div class="takeaway">Voucher sàn được chia trên <b>tiền hàng sau giảm shop</b>, không gồm phí giao; phần giảm tiếp tục được phân bổ xuống từng dòng hàng.</div>
-
-<DeepExplain :slide="23" />
 
 <!--
 SLIDE 23 — Tính voucher theo đúng thứ tự để không cộng trừ sai
@@ -973,8 +927,6 @@ layout: default
 <div class="algo-equation">Mục tiêu Qᵢ = ⌊Cᵢ × D / T⌋ &nbsp; → &nbsp; Giảm dòng i = Qᵢ − Qᵢ₋₁</div>
 <table class="algo-table"><thead><tr><th>Dòng</th><th>Tiền hàng</th><th>Cᵢ</th><th>Qᵢ</th><th>Giảm dòng</th></tr></thead><tbody><tr><td>1</td><td>33.333</td><td>33.333</td><td>3.333</td><td>3.333đ</td></tr><tr><td>2</td><td>33.333</td><td>66.666</td><td>6.667</td><td>3.334đ</td></tr><tr><td>3</td><td>33.334</td><td>100.000</td><td>10.001</td><td>3.334đ</td></tr></tbody></table>
 <div class="algo-columns"><div><h3>Vì sao tổng luôn khớp?</h3><p>Cộng các hiệu Qᵢ − Qᵢ₋₁ sẽ triệt tiêu phần giữa, còn Q cuối − Q₀ = D − 0.</p></div><div><h3>Vì sao không làm tròn riêng?</h3><p>Lấy phần nguyên từng dòng chỉ được 3.333 + 3.333 + 3.333 = 9.999đ, thiếu 2đ so với voucher.</p></div></div>
-
-<DeepExplain :slide="24" />
 
 <!--
 SLIDE 24 — Chia voucher lẻ từng đồng mà tổng vẫn đủ
@@ -1019,8 +971,6 @@ for (int bit = 63; bit >= 0; --bit) {
 
 </div><div><h3>Bất biến sau mỗi bit</h3><p>Với tiền tố nhị phân P đã đọc:<br><b>P × D = q × T + r</b>, 0 ≤ r &lt; T.</p><h3>Đọc thêm bit b</h3><p>P mới = 2P + b. Phần dư cần chia tiếp là <b>2r + bD</b>; không tạo tích C × D.</p><h3>Chi phí</h3><p>64 lượt cho mỗi dòng: O(64n), tức O(n) với số nguyên 64 bit; mảng kết quả O(n).</p></div></div>
 
-<DeepExplain :slide="25" />
-
 <!--
 SLIDE 25 — Chia số lớn từng chút để máy tính không bị tràn
 Đối chiếu báo cáo Word: Mục 3.3.2; mã allocateDiscount trong domain.cpp
@@ -1051,8 +1001,6 @@ layout: default
 <table class="algo-table"><thead><tr><th>Khối lượng w</th><th>Vượt 1kg</th><th>Số bậc</th><th>Phí khác vùng</th></tr></thead><tbody><tr><td>1.000g</td><td>0g</td><td>0</td><td>35.000đ</td></tr><tr><td>1.001g</td><td>1g</td><td>1</td><td>40.000đ</td></tr><tr><td>1.500g</td><td>500g</td><td>1</td><td>40.000đ</td></tr><tr><td>1.501g</td><td>501g</td><td>2</td><td>45.000đ</td></tr></tbody></table>
 <div class="algo-columns"><div><h3>Làm tròn lên với số nguyên</h3><p>Với x &gt; 0, ⌈x / 500⌉ = (x + 499) / 500. Vượt chỉ 1g vẫn tính một bậc.</p></div><div><h3>Miền đầu vào và chi phí</h3><p>Chặn w &lt; 0 hoặc w &gt; 100.000g. Tính phí một shop là O(1); khối lượng lấy từ tổng gram × số lượng.</p></div></div>
 
-<DeepExplain :slide="26" />
-
 <!--
 SLIDE 26 — Nhìn bốn cân nặng để hiểu làm tròn lên
 Đối chiếu báo cáo Word: Mục 3.2.5
@@ -1081,8 +1029,6 @@ layout: default
 # Báo giá được ràng buộc với dữ liệu nào?
 <div class="algo-columns"><div><h3>1 · Tính lại ở máy chủ</h3><p>Đọc giá, kho, địa chỉ và voucher; dựng snapshot gồm người mua, phương thức, revision giỏ, tổng tiền và đơn con.</p><h3>2 · Loại dữ liệu không ổn định</h3><p>Bỏ ID vừa sinh, thời gian và lịch sử khỏi đơn; nếu giữ chúng, hai lần tính cùng giỏ vẫn tạo chữ ký khác nhau.</p></div><div><h3>3 · Ký báo giá trong 300 giây</h3><p>Token = thời điểm hết hạn + chữ ký HMAC trên phiên bản định dạng, hạn dùng và snapshot.</p><h3>4 · Khi xác nhận checkout</h3><p>Tính lại snapshot rồi so token bằng <code>constantEqual</code>. Giá, giỏ hoặc tổng thay đổi → yêu cầu xác nhận lại.</p></div></div>
 <table class="algo-table"><thead><tr><th>Điều kiện</th><th>Phản hồi</th><th>Việc người mua cần làm</th></tr></thead><tbody><tr><td>Thiếu / sai cấu trúc token</td><td>409 · quote_required</td><td>Lấy báo giá</td></tr><tr><td>Token hết hạn</td><td>409 · quote_expired</td><td>Lấy báo giá mới</td></tr><tr><td>Chữ ký không khớp</td><td>409 · quote_changed</td><td>Xem và xác nhận lại tổng</td></tr></tbody></table>
-
-<DeepExplain :slide="27" />
 
 <!--
 SLIDE 27 — Mã báo giá giống con dấu chống sửa hóa đơn
@@ -1128,10 +1074,8 @@ if (!existing.is_null())
 ```
 
 </div>
-<div class="explain-card"><span class="pill">application.cpp · một dòng return rút gọn</span><h3>Idempotency là gì?</h3><p>Nếu người dùng bấm “Đặt hàng” hai lần hoặc mạng gửi lại request với cùng mã, backend trả checkout đã có.</p><div class="example-box">Lần 1 → tạo đơn <b>#A123</b><br>Lần 2 cùng key → trả đơn <b>#A123</b></div><p>Điều kiện truy vấn gắn <b>người mua + idempotency key</b>.</p></div>
+<div class="explain-card"><span class="pill">application.cpp · checkout</span><h3>Bấm hai lần vẫn chỉ có một đơn</h3><p><b>Chức năng:</b> nhận diện yêu cầu đặt hàng gửi lại bằng một mã riêng, kết hợp với tài khoản người mua.</p><p><b>Lợi ích:</b> mạng chậm hoặc khách bấm nút nhiều lần sẽ không tạo thêm đơn trùng khi gửi lại cùng mã; khách nhận lại kết quả đã tạo.</p><p><b>Trong C++:</b> backend tìm checkout theo <b>buyer_id + idempotency_key</b> trước khi xử lý lại.</p><div class="example-box"><span>Lần 1 → tạo đơn <b>#A123</b></span><strong>Lần 2 cùng mã → vẫn #A123</strong></div></div>
 </div>
-
-<DeepExplain :slide="28" />
 
 <!--
 SLIDE 28 — Mã chống trùng giống số thứ tự giao dịch
@@ -1178,10 +1122,8 @@ void Database::Transaction::commit() {
 ```
 
 </div>
-<div class="explain-card"><span class="pill">database.cpp · rút gọn phần quản lý kết nối</span><h3>RAII là gì?</h3><p>Tài nguyên gắn với <b>vòng đời đối tượng</b>. Nếu một transaction bị hủy khi chưa commit, destructor gọi <code>ROLLBACK</code>.</p><div class="example-box"><b>Đặt hàng thành công</b> → COMMIT ✓<br><b>Kiểm kho thất bại</b> → ROLLBACK ↩</div></div>
+<div class="explain-card"><span class="pill">database.cpp · transaction</span><h3>Thất bại giữa chừng thì hoàn tác</h3><p><b>Chức năng:</b> gom các thao tác lưu đơn, cập nhật kho thành một giao dịch; chỉ xác nhận khi mọi bước cần thiết đều thành công.</p><p><b>Lợi ích:</b> tránh tình huống kho đã trừ nhưng đơn chưa được lưu, khiến dữ liệu mua bán bị lệch.</p><p><b>Trong C++:</b> destructor tự <code>ROLLBACK</code> nếu giao dịch kết thúc mà chưa <code>COMMIT</code>.</p><div class="example-box"><span>Đặt hàng thành công → <b>COMMIT ✓</b></span><span>Kiểm kho thất bại → <b>ROLLBACK ↩</b></span></div></div>
 </div>
-
-<DeepExplain :slide="29" />
 
 <!--
 SLIDE 29 — Transaction là nguyên tắc làm đủ hoặc hoàn lại
@@ -1212,8 +1154,6 @@ layout: default
 <p class="lead">Kho còn 1 sản phẩm. Hai checkout A và B đều muốn mua 1.</p>
 <table class="algo-table"><thead><tr><th>Lượt</th><th>Checkout A</th><th>Checkout B</th></tr></thead><tbody><tr><td>1</td><td>Lấy khóa ghi, đọc stock = 1</td><td>Chờ khóa ghi</td></tr><tr><td>2</td><td>Kiểm tra đủ → stock = 0 → lưu đơn</td><td>Tiếp tục chờ</td></tr><tr><td>3</td><td>COMMIT, nhả khóa</td><td>Lấy khóa, đọc stock = 0</td></tr><tr><td>4</td><td>Nhận đơn đã tạo</td><td>409 out_of_stock → hoàn tác</td></tr></tbody></table>
 <div class="algo-columns"><div><h3>Cơ chế thật trong Database</h3><p>SQLite: <code>BEGIN IMMEDIATE</code> cho thao tác ghi. PostgreSQL: <code>pg_advisory_xact_lock(72134001)</code> dùng chung cho các transaction ghi.</p></div><div><h3>Đánh đổi của thiết kế</h3><p>Khóa chung giúp tuần tự hóa thao tác giữ kho và voucher trong luồng này, nhưng có thể giới hạn thông lượng ghi khi tải tăng.</p></div></div>
-
-<DeepExplain :slide="30" />
 
 <!--
 SLIDE 30 — Hai người tranh món cuối: phải có lượt kiểm kho
@@ -1253,10 +1193,8 @@ auto existing = r.one(
 ```
 
 </div>
-<div class="explain-card"><span class="pill">application.cpp · mã nguồn thật</span><h3>Vì sao truyền tham số riêng?</h3><p>Điều kiện SQL dùng ký hiệu <code>?</code>; giá trị người dùng nằm trong danh sách <b>params</b>.</p><p>Ở tầng Database, SQLite dùng binding, PostgreSQL dùng <code>PQexecParams</code>.</p><div class="takeaway compact">Tránh ghép dữ liệu người dùng thẳng vào chuỗi SQL và tái sử dụng thao tác truy cập dữ liệu.</div></div>
+<div class="explain-card"><span class="pill">application.cpp · mã nguồn thật</span><h3>Tìm đơn an toàn bằng tham số</h3><p><b>Chức năng:</b> tìm đơn đã tạo theo tài khoản và mã yêu cầu, phục vụ việc chống đặt hàng trùng.</p><p><b>Lợi ích:</b> tách dữ liệu khách nhập khỏi câu lệnh SQL để giảm nguy cơ chèn lệnh ngoài ý muốn; cùng cách truy vấn có thể dùng cho các loại cơ sở dữ liệu hỗ trợ.</p><p><b>Trong C++:</b> dấu <code>?</code> đánh dấu vị trí tham số; tầng Database gắn giá trị bằng cơ chế của SQLite hoặc PostgreSQL.</p><div class="example-box"><span>Khách gửi lại mã đặt hàng cũ</span><strong>Tìm và trả về đơn đã có</strong></div></div>
 </div>
-
-<DeepExplain :slide="31" />
 
 <!--
 SLIDE 31 — Repository giống thủ thư biết tìm hồ sơ
@@ -1287,8 +1225,6 @@ layout: default
 <div class="payment-journey"><div><span>01</span><h3>Checkout</h3><p>Backend tạo đơn có trạng thái pending</p></div><div class="arrow-between">→</div><div><span>02</span><h3>payOS</h3><p>Tạo link thanh toán khi được cấu hình</p></div><div class="arrow-between">→</div><div><span>03</span><h3>Webhook</h3><p>Gửi dữ liệu giao dịch và chữ ký HMAC</p></div><div class="arrow-between">→</div><div><span>04</span><h3>Đối soát</h3><p>Backend kiểm chứng và cập nhật trạng thái</p></div></div>
 <div class="payment-safety"><div><b>Không dựa vào trang “thanh toán thành công”</b><p>Người dùng có thể đóng tab hoặc sửa URL; hệ thống đối chiếu thông tin thanh toán ở backend.</p></div><div><b>COD là phương án riêng</b><p>Không cần gọi gateway; đơn tiếp tục qua quy trình giao hàng và thu tiền khi nhận.</p></div></div>
 
-<DeepExplain :slide="32" />
-
 <!--
 SLIDE 32 — Thanh toán chỉ được xác nhận khi đã đối soát
 Đối chiếu báo cáo Word: Mục 3.3.7
@@ -1318,8 +1254,6 @@ layout: default
 <div class="test-grid"><div><span class="test-check">✓</span><h3>Money</h3><p>15.000 + 20.000 = <b>35.000đ</b><br>Nhân vượt giới hạn → lỗi</p></div><div><span class="test-check">✓</span><h3>Shipping</h3><p>Cùng vùng 1kg → <b>20.000đ</b><br>Khác vùng 1.501g → <b>45.000đ</b></p></div><div><span class="test-check">✓</span><h3>OrderSnapshot</h3><p>Copy/move rồi tính đúng tổng <b>24.690đ</b></p></div><div><span class="test-check">✓</span><h3>State machine</h3><p><code>new → confirmed</code> hợp lệ<br><code>new → delivered</code> bị chặn</p></div><div><span class="test-check">✓</span><h3>Discount</h3><p>Phân bổ voucher, cộng lại đúng <b>10.001đ</b></p></div><div><span class="test-check">✓</span><h3>Security</h3><p>HMAC tham chiếu và kiểm tra mật khẩu</p></div></div>
 <p class="caption">Các trường hợp trên được đọc từ <code>tests/domain_tests.cpp</code>. Đây là nội dung bài kiểm thử trong nguồn, không phải tuyên bố vừa chạy toàn bộ test backend.</p>
 
-<DeepExplain :slide="33" />
-
 <!--
 SLIDE 33 — Kiểm thử là thử trước những tình huống dễ sai
 Đối chiếu báo cáo Word: Mục 4.1
@@ -1348,8 +1282,6 @@ layout: default
 # Những gì dự án đã làm được và còn hạn chế
 <div class="compare-grid"><div class="compare-panel success"><h3>Đã có trong mã nguồn</h3><p>✓ Backend C++20 xử lý nghiệp vụ web</p><p>✓ Tổ chức các lớp OOP có vai trò rõ ràng</p><p>✓ Checkout, kiểm kho, chia đơn theo shop</p><p>✓ SQLite phát triển / PostgreSQL triển khai</p><p>✓ Kiểm thử miền nghiệp vụ và tài liệu API</p></div><div class="compare-panel limits"><h3>Cần tiếp tục hoàn thiện</h3><p>↗ Dữ liệu sản phẩm phần lớn phục vụ thử nghiệm</p><p>↗ Phí giao hàng hiện là công thức minh họa</p><p>↗ Kiểm thử tích hợp các dịch vụ thật sâu hơn</p><p>↗ Đo tải, giám sát và kiểm thử đồng thời</p><p>↗ Chuẩn bị dữ liệu / cấu hình riêng cho sản xuất</p></div></div>
 
-<DeepExplain :slide="34" />
-
 <!--
 SLIDE 34 — Hiểu kết quả đồ án và giới hạn sử dụng
 Đối chiếu báo cáo Word: Mục 4.2–4.3; 5.1–5.3
@@ -1374,8 +1306,6 @@ KẾT LUẬN CỦA SLIDE: Nêu đúng phạm vi học phần, đồng thời ch�
 layout: default
 ---
 <div class="thankyou"><div class="brand"><span class="brand-icon">S</span> SHOPPE <span class="brand-divider"></span> C++20</div><p class="eyebrow">LỚP · TOÁN TỬ · KẾ THỪA · ĐA HÌNH · THUẬT TOÁN</p><h1>Q&A<span>.</span></h1><p>Cảm ơn thầy/cô và các bạn đã lắng nghe.<br>Rất mong nhận được câu hỏi và góp ý.</p><div class="thanks-links"><span>github.com/hoquan2007/Shoppe-C-</span><span>shoppec.vercel.app</span></div></div>
-
-<DeepExplain :slide="35" />
 
 <!--
 SLIDE 35 — Chuẩn bị câu hỏi thường gặp

@@ -1,4 +1,4 @@
-// Chép phần giải thích dễ hiểu vào speaker notes và thêm nút xem chi tiết.
+// Đồng bộ nội dung thuyết trình vào speaker notes; không thêm nút giải thích lên slide.
 // Node 24+ có thể nhập trực tiếp tệp .ts nhờ type stripping.
 // Chạy: node scripts/sync-study-explanations.mjs
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -32,7 +32,7 @@ const updated = input.replace(/^(?:<DeepExplain :slide="\d+" \/>\r?\n\r?\n)?<!--
     '[GHI CHÚ GỐC]', original, '[HẾT GHI CHÚ GỐC]',
   ]
 
-  return `<DeepExplain :slide="${current}" />${nl}${nl}<!--${nl}${lines.join(nl)}${nl}-->`
+  return `<!--${nl}${lines.join(nl)}${nl}-->`
 })
 
 if (current !== 35 || Object.keys(studyContent).length !== 35) {
@@ -42,5 +42,5 @@ if (updated === input) {
   console.log('35 slide đã đồng bộ, không có thay đổi mới.')
 } else {
   writeFileSync(target, updated, 'utf8')
-  console.log(`Đã bổ sung nút giải thích và lời dẫn 35 slide vào ${target}`)
+  console.log(`Đã đồng bộ lời dẫn 35 slide vào speaker notes của ${target}`)
 }
